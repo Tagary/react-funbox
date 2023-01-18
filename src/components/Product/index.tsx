@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import { IProd } from '../../models/IProd';
 import catImg from '../../assets/cat.png';
 
@@ -18,6 +18,12 @@ const Product: FC<ProductProps> = ({ product }) => {
     if (!product.disable) {
       setActiveState((prev) => !prev);
       setFirst(true);
+    }
+  };
+
+  const setActiveKey = () => {
+    if (!product.disable) {
+      setActiveState((prev) => !prev);
     }
   };
 
@@ -95,7 +101,7 @@ const Product: FC<ProductProps> = ({ product }) => {
       ) : (
         <div className={styles.card__footer}>
           Чего сидишь? Порадуй котэ,{' '}
-          <span className={styles._color} onClick={setActive}>
+          <span className={styles._color} onClick={setActiveKey}>
             <span className={styles.card__link}>купи</span>.
           </span>
         </div>
