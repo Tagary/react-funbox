@@ -21,6 +21,12 @@ const Product: FC<ProductProps> = ({ product }) => {
     }
   };
 
+  const setActiveKey = () => {
+    if (!product.disable) {
+      setActiveState((prev) => !prev);
+    }
+  };
+
   const setMouseLeave = () => {
     setEnter(false);
     setFirst(false);
@@ -95,7 +101,7 @@ const Product: FC<ProductProps> = ({ product }) => {
       ) : (
         <div className={styles.card__footer}>
           Чего сидишь? Порадуй котэ,{' '}
-          <span className={styles._color} onClick={setActive}>
+          <span className={styles._color} onClick={setActiveKey}>
             <span className={styles.card__link}>купи</span>.
           </span>
         </div>
